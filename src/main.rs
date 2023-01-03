@@ -1,29 +1,30 @@
 use std::vec;
-use std::string;
 
-static HI: &str = "HI";
-const YO: &str = "YO";
+static _HI: &str = "HI";
+const _YO: &str = "YO";
 
 fn main() {
     
-    let q: &'static str = "hi";
-    let d = string::String::new();
-    let s = String::new();
-    let y = String::from("");
-    let x = "".to_owned();
-    let z: String = "".into();
-    let f = str::to_owned("");
-    let r = <&str as Into<String>>::into("");
-    let b = Into::<String>::into("");
-    let u = ["a", "b", "c"].map(str::to_owned);
-    let o = String::to_owned(&"".to_owned());
+    let a: &'static str = "hi";
+    let b = std::string::String::new();
+    let c = String::new();
+    let d = String::from("");
+    let e = "".to_owned();
+    let f: String = "".into();
+    let g = "".to_string();
+    let h = str::to_owned("");
+    let i = <&str as Into<String>>::into("");
+    let j = Into::<String>::into("");
+    let k = ["a", "b", "c"].map(str::to_owned);
+    let l = String::to_owned(&"".to_owned());
     
-    let l = vec!['a','b','c'];
-    let ll: vec::Vec<i32> = vec::Vec::new();
-    let c = "";
-    let i = [""];
 
+    let o = "";
+    let oo: &str = &String::new();
+    //let m: &str = &vec![1u8,2,3];
 
-    println!("{:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?}", s, y, z, x, b, f, c, r, u, o, i);
+    let p = [""];
+    let n: vec::Vec<i32> = vec::Vec::new();
+    let nn: &[i32] = &vec![1,2,3];
+
 }
-
