@@ -1,18 +1,21 @@
-use std::io::Write;
-
+use std::io::{Write, Stdout, Stdin};
 use rand::Rng;
 
 pub fn ran() {
-    let mut r = rand::thread_rng();
-    let rr = r.gen_range(1..=5);
-    let mut guess = String::new();
+    
+
     print!("Enter a number: ");
-    let mut out = std::io::stdout();
-    out.flush().expect("sheit");
-    let sin = std::io::stdin();
-    sin.read_line(&mut guess).expect("nogood");
+    let ref mut stdout: Stdout = std::io::stdout();
+    stdout.flush().expect("sheit");
+
+    let ref mut guess: String = String::new();
+    let stdin: &Stdin = &*&mut std::io::stdin();
+    stdin.read_line(guess).expect("nogood");
     println!("You entered: {}", guess);
-    println!("And here's a random number: {}", rr);
+
+    let ref mut rand_gen = rand::thread_rng();
+    let ans = rand_gen.gen_range(1..=5);
+    println!("And here's a random number: {}", ans);
 
 
 
