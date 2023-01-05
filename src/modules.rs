@@ -11,7 +11,9 @@ pub fn ran() {
     let ref mut guess: String = String::new();
     let stdin: &Stdin = &*&mut std::io::stdin();
     stdin.read_line(guess).expect("nogood");
-    print!("You entered: {}", guess);
+    
+    let parsed: u32 = guess.trim().parse().expect("parse failed");
+    println!("You entered: {}", parsed);
 
     let ref mut rand_gen = rand::thread_rng();
     let ans = rand_gen.gen_range(1..=5);
