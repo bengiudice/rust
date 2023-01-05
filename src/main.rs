@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 mod modules;
 mod strings;
 mod ch1;
@@ -7,5 +6,3 @@ fn main() {
     modules::ran();
     ch1::main();
 }
-=======
->>>>>>> 30442aa (ch1)
