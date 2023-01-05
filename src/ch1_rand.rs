@@ -30,15 +30,22 @@ pub fn ran() {
         let stdout = &mut std::io::stdout();
         stdout.flush().expect("sheit");
 
-        let guess= &mut String::new();
+        let guess = &mut String::new();
         stdin.read_line(guess).expect("nogood");
         let guess = &**guess;
         let guess = guess.trim();
 
-        let guess = if guess == "b" { Ok((h + l) / 2) } else { guess.parse::<u64>()};
-                
+        let guess = if guess == "b" {
+            Ok((h + l) / 2)
+        } else {
+            guess.parse::<u64>()
+        };
+
         let guess = match guess {
-            Ok(ans) => {remaining -= 1; ans},
+            Ok(ans) => {
+                remaining -= 1;
+                ans
+            }
             Err(_) => continue,
         };
 
@@ -47,16 +54,29 @@ pub fn ran() {
         let ans = guess.cmp(rand);
 
         let attempt = match ans {
-            std::cmp::Ordering::Greater => {h = *guess; "too big"},
+            std::cmp::Ordering::Greater => {
+                h = *guess;
+                "too big"
+            }
             std::cmp::Ordering::Equal => "right!",
-            std::cmp::Ordering::Less => {l = *guess; "too small"},
+            std::cmp::Ordering::Less => {
+                l = *guess;
+                "too small"
+            }
         };
 
-        println!("Your guess of {} was {}. {} remaining.", guess, attempt, remaining);
+        println!(
+            "Your guess of {} was {}. {} remaining.",
+            guess, attempt, remaining
+        );
 
-        if ans == std::cmp::Ordering::Equal { break; }
+        if ans == std::cmp::Ordering::Equal {
+            break;
+        }
 
-        if remaining <= 0 { println!("No guesses remaining!"); return; }
+        if remaining == 0 {
+            println!("No guesses remaining!");
+            return;
+        }
     }
-
 }

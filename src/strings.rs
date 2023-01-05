@@ -17,13 +17,13 @@ pub mod heyu {
     fn _look_str() {
         let _a: &'static str = "hi";
         let _o = "";
-        let _oo: &str = &String::new();
-        //let m: &str = &vec![1u8,2,3];    
+        //let _oo: &str = &String::new();
+        //let m: &str = &vec![1u8,2,3];
     }
     fn _look_vec() {
         let _k = ["a", "b", "c"].map(str::to_owned);
         let _p = [""];
         let _n: std::vec::Vec<i32> = std::vec::Vec::new();
-        let _nn: &[i32] = &vec![1,2,3];    
+        let _nn: &[i32] = &[1, 2, 3];
     }
 }
